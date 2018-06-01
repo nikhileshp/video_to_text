@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vid:</strong>
+  <%= @chunk.vid_id %>
+</p>
+
+<p>
+  <strong>Chunk type:</strong>
+  <%= @chunk.chunk_type %>
+</p>
+
+<p>
+  <strong>Chunk content:</strong>
+  <%= @chunk.chunk_content %>
+</p>
+
+<p>
+  <strong>Confidence:</strong>
+  <%= @chunk.confidence %>
+</p>
+
+<%= link_to 'Edit', edit_chunk_path(@chunk) %> |
+<%= link_to 'Back', chunks_path %>

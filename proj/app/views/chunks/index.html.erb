@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Chunks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Vid</th>
+      <th>Chunk type</th>
+      <th>Chunk content</th>
+      <th>Confidence</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @chunks.each do |chunk| %>
+      <tr>
+        <td><%= chunk.vid_id %></td>
+        <td><%= chunk.chunk_type %></td>
+        <td><%= chunk.chunk_content %></td>
+        <td><%= chunk.confidence %></td>
+        <td><%= link_to 'Show', chunk %></td>
+        <td><%= link_to 'Edit', edit_chunk_path(chunk) %></td>
+        <td><%= link_to 'Destroy', chunk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Chunk', new_chunk_path %>

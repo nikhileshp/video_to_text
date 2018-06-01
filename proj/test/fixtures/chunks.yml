@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vid_id: 
+  chunk_type: MyString
+  chunk_content: MyText
+  confidence: 1.5
+
+two:
+  vid_id: 
+  chunk_type: MyString
+  chunk_content: MyText
+  confidence: 1.5

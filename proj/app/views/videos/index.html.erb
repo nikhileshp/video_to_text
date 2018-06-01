@@ -1,0 +1,72 @@
+<p id="notice"><%= notice %></p>
+
+<h1><u>List of Videos in Database</u></h1>
+<br>
+
+<% if @incomplete %>
+<h3> Videos without Transcriptions </h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>File</th>
+      <th>Status</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @incomplete.each do |video| %>
+      <tr>
+        <td><%= video.name %></td>
+        <td><%= video.file %></td>
+        <td> Incomplete </td>
+        <td><%= link_to 'Transcribe', "videos/#{video.id}/transcribe" %></td>
+        <td><%= link_to 'Show', video %></td>
+        <td><%= link_to 'Edit', edit_video_path(video) %></td>
+        <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+ 
+  </tbody>
+</table>
+   <% end %>
+   <%end %>
+
+<br>
+
+
+<div >
+<% if @complete %>
+  <h3> Videos with Transcriptions </h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Video Location</th>
+        <th>Text Location</th>
+        <th>Status</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+<% @complete.each do |video| %>
+        <tr>
+          <td><%= video.name %></td>
+          <td><%= video.file %></td>
+          <td><%= video.textfile %> </td>
+          <td> Complete </td>
+          <td><%= link_to 'Show', video %></td>
+          <td><%= link_to 'Edit', edit_video_path(video) %></td>
+          <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%end%>
+<br>
+
+<%= link_to 'New Video', new_video_path %>

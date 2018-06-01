@@ -1,0 +1,37 @@
+<%= form_with(model: chunk, local: true) do |form| %>
+  <% if chunk.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(chunk.errors.count, "error") %> prohibited this chunk from being saved:</h2>
+
+      <ul>
+      <% chunk.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :vid_id %>
+    <%= form.text_field :vid_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :chunk_type %>
+    <%= form.text_field :chunk_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :chunk_content %>
+    <%= form.text_area :chunk_content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :confidence %>
+    <%= form.text_field :confidence %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
